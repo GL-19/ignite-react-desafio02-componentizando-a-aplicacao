@@ -1,5 +1,6 @@
 import { MovieCard } from "./MovieCard";
 import "../styles/content.scss";
+import { memo } from "react";
 
 interface Genre {
 	id: number;
@@ -23,7 +24,7 @@ interface ContentProps {
 	movies: Movie[];
 }
 
-export function Content(props: ContentProps) {
+function ContentComponent(props: ContentProps) {
 	const { selectedGenre, movies } = props;
 	return (
 		<div className="container">
@@ -49,3 +50,5 @@ export function Content(props: ContentProps) {
 		</div>
 	);
 }
+
+export const Content = memo(ContentComponent);
